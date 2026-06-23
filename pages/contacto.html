@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto RM</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.3s ease;
+}
+.skip-link:focus {
+    top: 1rem;
+    outline: 3px solid rgba(255,255,255,0.6);
+    outline-offset: 3px;
+}
+.panel-contacto {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+.cuadrícula-contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.tarjeta-datos,
+.tarjeta-mapa {
+    outline: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tarjeta-datos:focus-visible,
+.tarjeta-mapa:focus-visible {
+    outline: 3px solid rgba(0, 104, 71, 0.35);
+    outline-offset: 4px;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.enlace-contacto,
+.boton-whatsapp,
+.boton-abrir-mapa-real {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.enlace-contacto:focus-visible,
+.boton-whatsapp:focus-visible,
+.boton-abrir-mapa-real:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+.enlace-contacto:hover,
+.boton-whatsapp:hover,
+.boton-abrir-mapa-real:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+.tarjeta-mapa {
+    background: var(--color-bg-pure);
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.encabezado-mapa {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+.marcador-pin-animado {
+    width: 14px;
+    height: 14px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 1rem;
+    animation: pulsePin 1.8s infinite;
+}
+@keyframes pulsePin {
+    0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
+    100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}
+.txt-indicador-mapa {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <a href="#contenido-contacto" class="skip-link">
+        Saltar al contenido principal
+    </a>
+    <header class="cabecera-premium-institucional"></header>
+    <section class="seccion-contacto-superior" aria-labelledby="principal-contacto">
+    <h2 id="principal-contacto" class="visualmente-oculto" tabindex="0">Ubicación y Canales de Atención</h2>
+    <div class="cuadrícula-contacto" tabindex="0">
+        <div class="tarjeta-datos">
+            <h3 class="subtitulo-contacto" tabindex="0">Canales de Atención Oficial</h3>
+            <ul class="lista-datos">
+                <li tabindex="0"><strong>Dirección Física:</strong> Calle Dresdell 215, Urbanización San Salvador, Trujillo (Código Postal 13011).</li>
+                <li tabindex="0"><strong>Horario de Atención:</strong> Lunes a Viernes de 9:00 a.m. a 12:30 p.m. y de 1:15 p.m. a 4:00 p.m.</li>
+                <li tabindex="0"><strong>Red Social:</strong> <a href="https://www.facebook.com/IE80018RepublicadeMexico" target="_blank" rel="noopener noreferrer" class="enlace-contacto" tabindex="0">Facebook Institucional</a></li>
+                <li tabindex="0">
+                    <strong>Contacto Directo:</strong> 
+                    <div class="contenedor-boton-wp" tabindex="0">
+                        <a href="https://wa.me/51970240371?text=Hola,%20quisiera%20más%20información" target="_blank" rel="noopener noreferrer" class="boton-whatsapp" tabindex="0">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" tabindex="0"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.023-5.086-2.884-6.948C16.54 2.04 14.077.965 11.5.965c-5.44 0-9.866 4.372-9.87 9.802 0 1.63.463 3.224 1.34 4.646l-.997 3.641 3.734-.96c1.45.79 2.97 1.21 4.54 1.21zM17.7 14.52c-.33-.16-1.95-.94-2.25-1.05-.3-.11-.52-.16-.74.16-.22.33-.86 1.05-1.05 1.25-.19.22-.39.25-.72.09-1.3-.65-2.23-1.15-3.12-2.65-.23-.4-.23-.77-.07-.93.15-.15.33-.39.49-.58.16-.19.22-.33.33-.55.11-.22.05-.41-.02-.58-.08-.16-.74-1.74-1.02-2.39-.27-.65-.54-.56-.74-.56-.19 0-.41-.02-.63-.02s-.57.08-.87.41c-.3.33-1.14 1.1-1.14 2.67s1.14 3.1 1.3 3.32c.16.22 2.24 3.37 5.42 4.7 1.54.65 2.45.86 3.3.99.85.12 1.63.08 2.24-.01.68-.1 1.95-.78 2.23-1.54.27-.75.27-1.4.19-1.54-.08-.14-.3-.22-.63-.38z" tabindex="0"></path></svg>
+                            Contactar vía WhatsApp</a></div></li></ul></div>
+        <div class="tarjeta-mapa pilar-borde-rojo" tabindex="0">
+            <div class="encabezado-mapa" tabindex="0">Ubicación Institucional</div>
+            <div class="contenedor-mapa-seguro" tabindex="0">
+                <div class="mapa-estatico-fallback" tabindex="0">
+                    <div class="marcador-pin-animado" aria-hidden="true" tabindex="0"></div>
+                    <p class="txt-indicador-mapa" tabindex="0">I.E. 80018 "República de México"<br><span class="dir-sub" tabindex="0">Calle Dresdell 215, Trujillo</span></p>
+                    <a href="https://maps.app.goo.gl/6XSpRmnjxuj6sLek6" target="_blank" rel="noopener noreferrer" class="boton-abrir-mapa-real" tabindex="0">Ver Ubicación en Google Maps<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" tabindex="0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" tabindex="0"></path></svg>
+                    </a></div></div></div></div></section>
+<footer class="pie-pagina-global-rm"></footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

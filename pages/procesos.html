@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesos Colegio RM</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style> 
+    .panel-procesos {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+} .titulo-principal-procesos { text-align: center; color: var(--color-text-main); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 3rem; line-height: 1.2; }
+.bloque-procesos-card {
+    background: var(--color-bg-pure);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    box-sizing: border-box;
+    border: 1px solid #E2E8F0;
+}
+.bloque-procesos-card:focus-visible {
+    outline: 3px solid rgba(0, 104, 71, 0.25);
+    outline-offset: 4px;
+}
+.card-verde { border-top: 6px solid var(--color-secondary); }
+.card-rojo { border-top: 6px solid var(--color-primary); }
+.card-dorado { border-top: 6px solid var(--color-details); }
+.subtitulo-procesos {
+    color: var(--color-text-main);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #E2E8F0;
+    padding-bottom: 0.5rem;
+}
+.grilla-procesos-tres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+.grilla-procesos-dos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+.item-subseccion h3 {
+    color: var(--color-text-main);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+.item-subseccion p {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+    text-wrap: pretty;
+}.item-subseccion:focus-visible { outline: 3px dashed var(--color-secondary); outline-offset: 3px; }
+.contenedor-acordeones {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+}
+.acordeon-item {
+    background: var(--color-bg-soft);
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.acordeon-item[open] {
+    background: var(--color-bg-pure);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.acordeon-cabecera {
+    padding: 1.2rem 3rem 1.2rem 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    font-size: 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    user-select: none;
+    transition: color 0.2s ease;
+    outline: none;
+}
+.acordeon-cabecera:focus-visible {
+    outline: 3px dashed var(--color-secondary);
+    outline-offset: 3px;
+    color: var(--color-secondary);
+}
+.acordeon-cabecera::-webkit-details-marker {
+    display: none;
+}
+.acordeon-cabecera:hover {
+    color: var(--color-secondary);
+}
+/* flecha */
+.acordeon-cabecera::after {
+    content: "▶";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--color-details);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+.acordeon-item[open] .acordeon-cabecera::after {
+    transform: translateY(-50%) rotate(90deg);
+    color: var(--color-primary);
+}
+.acordeon-contenido {
+    padding: 0.5rem 1.5rem 1.8rem;
+    background: var(--color-bg-pure);
+    border-top: 1px solid #F1F5F9;
+}
+.lista-sintetizada {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lista-sintetizada li {
+    font-size: 0.98rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+    text-wrap: pretty;
+}
+.lista-sintetizada li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-details);
+    font-size: 1.3rem;
+    top: -1px;
+}
+.lista-sintetizada li:last-child {
+    margin-bottom: 0;
+}
+@media (max-width: 768px) {
+    .panel-procesos {
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+    }
+    .bloque-procesos-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .grilla-procesos-tres,
+    .grilla-procesos-dos {
+        gap: 1.5rem;
+    }
+    .acordeon-cabecera {
+        padding: 1rem 2.5rem 1rem 1rem;
+        font-size: 1rem;
+    }
+    .acordeon-cabecera::after {
+        right: 1rem;
+    }
+
+    .acordeon-contenido {
+        padding: 0.5rem 1rem 1.2rem;
+    }
+}
+</style>
+</head>
+<body>
+    <header class="cabecera-premium-institucional" tabindex="0"></header>
+    <main class="panel-procesos"><h1 class="titulo-principal-procesos" tabindex="0">Procesos de Matrícula y Permanencia Escolar</h1><section class="bloque-procesos-card card-verde" aria-labelledby="sub-gratuidad" tabindex="0">
+            <h2 id="sub-gratuidad" class="subtitulo-procesos">Conditions de Gratuidad del Servicio</h2>
+            <div class="grilla-procesos-tres"><article class="item-subseccion" tabindex="0"><h3>Cero Condicionamientos</h3>
+                    <p>La matrícula es 100% gratuita. No se condiciona a exámenes de ingreso, admisión o evaluaciones directas al menor bajo ningún concepto.</p></article><article class="item-subseccion" tabindex="0">
+                    <h3>Sin Pagos Obligatorios</h3>
+                    <p>No se exige el pago de donaciones, aportes de APAFA, contribuciones ni compras obligatorias de uniformes o materiales para acceder al servicio.</p></article>
+                <article class="item-subseccion" tabindex="0">
+                    <h3>Proceso Masivo Continuo</h3>
+                    <p>La ratificación y el proceso presencial regular se gestionan de diciembre a febrero, garantizando la continuidad oportuna del estudiante.</p></article>
+            </div></section>
+        <section class="bloque-procesos-card card-rojo" aria-labelledby="sub-vacantes"tabindex="0"><h2 id="sub-vacantes" class="subtitulo-procesos">Criterios para la Asignación de Vacantes</h2><div class="grilla-procesos-dos">
+                <article class="item-subseccion" tabindex="0">
+                    <h3>Prioridad por Inclusión y Familia</h3>
+                    <p><strong>NEE:</strong> Reserva de hasta 2 vacantes por aula para estudiantes con necesidades educativas especiales o discapacidad.</p>
+                    <p><strong>Hermanos:</strong> Prioridad absoluta para solicitudes de hermanos de alumnos matriculados vigentes para asegurar la unión familiar.</p>
+                </article><article class="item-subseccion" tabindex="0"><h3>Identidad Local y Ubicación</h3><p><strong>Exalumnos:</strong> Ingreso prioritario a hijos de exalumnos para rescatar la identidad y el lazo constante con la institución.</p><p><strong>Cercanía:</strong> Evaluación de proximidad del domicilio en la Urb. San Salvador para mitigar la inseguridad ciudadana y asegurar la puntualidad.</p></article></div></section>
+        <section class="bloque-procesos-card card-dorado" aria-labelledby="sub-reglamento"  tabindex="0">
+            <h2 id="sub-reglamento" class="subtitulo-procesos">Reglamento Escolar de Convivencia</h2>
+            <div class="contenedor-acordeones"><details class="acordeon-item" tabindex="0"><summary class="acordeon-cabecera">Normas de Convivencia Institucional</summary>
+                    <div class="acordeon-contenido"><ul class="lista-sintetizada">
+                            <li><strong>Equipos Electrónicos:</strong> Uso de celulares restringido en horario escolar. Equipos distractores serán decomisados y entregados solo al apoderado. El colegio no se responsabiliza por pérdidas.</li>
+                            <li><strong>Aseo y Uniforme:</strong> Asistencia obligatoria con el uniforme oficial. Varones con cabello corto sin diseños y afeitados. Mujeres con cabello ordenado, sin maquillaje ni uñas pintadas. Prohibido piercings y tatuajes.</li>
+                            <li><strong>Prendas de Promoción:</strong> Solo se permite la casaca de promoción autorizada para los grados de 5to de secundaria y 6to de primaria.</li>
+                            <li><strong>Material Audiovisual:</strong> Prohibido grabar, fotografiar o difundir la vida institucional en redes sin autorización. Prohibida la creación de stickers de miembros del plantel.</li></ul></div></details>
+                <details class="acordeon-item" tabindex="0">
+                    <summary class="acordeon-cabecera">Deberes Esenciales del Estudiante</summary>
+                    <div class="acordeon-contenido">
+                        <ul class="lista-sintetizada">
+                            <li><strong>Puntualidad Absoluta:</strong> Ingreso exacto por niveles (Secundaria 7:00 a.m. / Primaria 1:30 p.m.). Tardanzas requieren justificación presencial del apoderado.</li>
+                            <li><strong>Materiales de Estudio:</strong> Portar obligatoriamente la Agenda Escolar para el auxiliar, útiles en buen estado y los libros del MINEDU del día.</li>
+                            <li><strong>Conservación del Plantel:</strong> Mantener limpias aulas, laboratorios y carpetas (sin inscripciones). Daños materiales exigen reposición económica.</li>
+                            <li><strong>Identidad Cívica:</strong> Respetar símbolos patrios y entonation con fervor el Himno Nacional, Himno a Trujillo e Himno Institucional en ceremonias.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+    <footer class="pie-pagina-global-rm"></footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
